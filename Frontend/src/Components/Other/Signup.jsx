@@ -24,7 +24,7 @@ const Signup = () => {
     try {
       const hashedPassword = await bcrypt.hash(password, 10);
       console.log(hashedPassword);
-      const response = await axios.post('http://localhost:2000/user', {
+      const response = await axios.post('https://abbasifoods.onrender.com/user', {
         name,
         email,
         password:hashedPassword,

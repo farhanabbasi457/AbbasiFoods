@@ -12,7 +12,7 @@ const DeleteUser = () => {
 
 
     try {
-      const response = await axios.delete(`http://localhost:2000/user/${name}`);
+      const response = await axios.delete(`https://abbasifoods.onrender.com/user/${name}`);
 
       if (response.data.message === 1) {
         alert('User Deleted Successfully');

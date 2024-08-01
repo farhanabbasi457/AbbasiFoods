@@ -13,7 +13,7 @@ const Updatecategory = () => {
 
 
     try {
-      const response = await axios.put(`http://localhost:2000/category/${name}`, {
+      const response = await axios.put(`https://abbasifoods.onrender.com/category/${name}`, {
         name:Newname,
       });
 

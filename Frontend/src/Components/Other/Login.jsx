@@ -16,7 +16,7 @@ const Login = () => {
   const submitHandler = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.get('http://localhost:2000/user');
+      const response = await axios.get('https://abbasifoods.onrender.com/user');
       const users = response.data.message;
 
       const user = users.find(user => user.email === email && user.role === "user");

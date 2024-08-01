@@ -12,7 +12,7 @@ const Deletecategory = () => {
 
 
     try {
-      const response = await axios.delete(`http://localhost:2000/menuitem/${name}`);
+      const response = await axios.delete(`https://abbasifoods.onrender.com/menuitem/${name}`);
 
       if (response.data.message === 1) {
         alert('Item Deleted Successfully');

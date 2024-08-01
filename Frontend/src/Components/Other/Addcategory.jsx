@@ -12,7 +12,7 @@ const Addcategory = () => {
 
 
     try {
-      const response = await axios.post('http://localhost:2000/category', {
+      const response = await axios.post('https://abbasifoods.onrender.com/category', {
         name,
       });
 

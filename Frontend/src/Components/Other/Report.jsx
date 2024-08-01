@@ -35,7 +35,7 @@ const Report = () => {
 
         const fetchUser = async () => {
             try {
-                const response = await axios.get(`http://localhost:2000/user/datasingle/${person}`);
+                const response = await axios.get(`https://abbasifoods.onrender.com/user/datasingle/${person}`);
                 console.log(response);
                 if (response.data.success === true) {
                     setusers(response.data.message[0]);
@@ -52,7 +52,7 @@ const Report = () => {
         }
         const fetchOrders = async () => {
             try {
-                const response = await axios.get(`http://localhost:2000/order/orders/${userid}`);
+                const response = await axios.get(`https://abbasifoods.onrender.com/order/orders/${userid}`);
                 console.log(response);
                 if (response.data.success === true) {
                     setOrders(response.data.message);

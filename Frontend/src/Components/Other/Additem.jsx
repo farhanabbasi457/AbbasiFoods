@@ -19,13 +19,13 @@ const Additem = () => {
   const submitHandler = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.get(`http://localhost:2000/category/single/${person}`);
+      const response = await axios.get(`https://abbasifoods.onrender.com/category/single/${person}`);
 
       if (response.data.success === true) {
         console.log(response.data.message[0]._id);
 
         try {
-          const response1 = await axios.post('http://localhost:2000/menuitem', {
+          const response1 = await axios.post('https://abbasifoods.onrender.com/menuitem', {
             category_ID: response.data.message[0]._id,
             name: name,
             description:description ,

@@ -20,13 +20,13 @@ const Additem = () => {
   const submitHandler = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.get(`http://localhost:2000/category/single/${person}`);
+      const response = await axios.get(`https://abbasifoods.onrender.com/category/single/${person}`);
 
       if (response.data.success === true) {
         console.log(response.data.message[0]._id);
 
         try {
-          const response1 = await axios.put(`http://localhost:2000/menuitem/${Oname}`, {
+          const response1 = await axios.put(`https://abbasifoods.onrender.com/menuitem/${Oname}`, {
             category_ID: response.data.message[0]._id,
             name: name,
             description:description ,

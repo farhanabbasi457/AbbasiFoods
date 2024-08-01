@@ -36,6 +36,9 @@ const Admin = () => {
   const [searchSubmitted, setSearchSubmitted] = useState(false);
 
 
+
+  const halfapi="https://abbasifoods.onrender.com";
+
   const billRef = useRef();
 
   const { name } = useUser();
@@ -54,7 +57,7 @@ const Admin = () => {
   const handlePrint1 = async () => {
     handlePrint();
     try {
-      const response1 = await axios.post('http://localhost:2000/order', {
+      const response1 = await axios.post(`${halfapi}/order`, {
         order_number: ONo,
         user_ID: person._id,
         discount_ID: discountID._id,
@@ -88,7 +91,7 @@ const Admin = () => {
     setDate(moment().format('MMMM Do YYYY, h:mm:ss a'));
     const fetchData = async () => {
       try {
-        const { data: { message } } = await axios.get(`http://localhost:2000/category`);
+        const { data: { message } } = await axios.get(`${halfapi}/category`);
         setCategory(message);
         console.log(message)
       } catch (error) {
@@ -97,7 +100,7 @@ const Admin = () => {
     };
     const fetchDiscount = async () => {
       try {
-        const { data: { message } } = await axios.get(`http://localhost:2000/discount/Weekend Special`);
+        const { data: { message } } = await axios.get(`${halfapi}/discount/Weekend Special`);
         setDiscountID(message[0]);
         const percentage = message[0].percentage;
         setDiscount(percentage);
@@ -109,7 +112,7 @@ const Admin = () => {
 
     const fetchData1 = async () => {
       try {
-        const { data: { message } } = await axios.get(`http://localhost:2000/category/${categoryName}`);
+        const { data: { message } } = await axios.get(`${halfapi}/category/${categoryName}`);
         setMenuitems(message);
         console.log(message)
       } catch (error) {
@@ -118,7 +121,7 @@ const Admin = () => {
     };
     const fetchUser = async () => {
       try {
-        const { data: { message } } = await axios.get(`http://localhost:2000/user/users`);
+        const { data: { message } } = await axios.get(`${halfapi}/user/users`);
         setUsers(message);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -126,7 +129,7 @@ const Admin = () => {
     };
     const fetchData3 = async () => {
       try {
-        const { data: { message } } = await axios.get(`http://localhost:2000/order`);
+        const { data: { message } } = await axios.get(`${halfapi}/order`);
         console.log(message);
         if (message === 0) {
           let l = 1;
@@ -184,7 +187,7 @@ const Admin = () => {
   const handleSearchSubmit = async (event) => {
     if (event.key === 'Enter' || event.type === 'click') {
       try {
-        var response = await axios.get(`http://localhost:2000/menuitem/${searchQuery}`);
+        var response = await axios.get(`${halfapi}/menuitem/${searchQuery}`);
         setFilteredItems(response.data.message);
         setSearchSubmitted(true);
         setCategoryCheck(true);
